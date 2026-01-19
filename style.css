@@ -1,0 +1,231 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url('bg-futuriste.png'); /* ← mets le bon chemin ici */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+
+h1 {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.graph-text-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 30px;
+  background: #000;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 1000px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.graph-text-wrapper svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.graph-text-wrapper p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+.tooltip {
+  position: absolute;
+  background: #000;
+  border: 1px solid #00f7ff;
+  padding: 8px;
+  font-size: 12px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 247, 255, 0.3);
+  border-radius: 4px;
+  color: #00f7ff;
+  z-index: 100;
+}
+
+
+
+input[type="range"] {
+  width: 300px;
+}
+
+.home-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  color: #ffff;;
+}
+
+#home h1 {
+  color: #ffffff;
+}
+
+.graph-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-wrapper {
+  max-width: 800px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 20px;
+  color: #ffffff;
+  background: #000;
+  border: 1px solid #00f7ff;
+  border-radius: 10px;
+  line-height: 1.6;
+  box-shadow: 0 0 10px rgba(0, 247, 255, 0.2);
+  box-sizing: border-box;
+}
+
+.about-wrapper h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.about-wrapper p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.about-wrapper a {
+  text-decoration: underline;
+}
+
+.swiper {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-wrapper {
+  box-sizing: border-box;
+}
+
+.swiper-slide {
+  padding: 40px 20px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+/* === SLIDER FLUO STYLÉ === */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 150px;
+  height: 6px;
+  background: linear-gradient(to right, #00f7ff, #ff2fa0);
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Chrome / Edge */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #00f7ff;
+  box-shadow: 0 0 8px #00f7ff;
+  transition: box-shadow 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 12px #00f7ff;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #00f7ff;
+  box-shadow: 0 0 8px #00f7ff;
+  cursor: pointer;
+}
+
+#replay-btn {
+  background: transparent;
+  color: #00f7ff;
+  border: 2px solid #00f7ff;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px rgba(0, 247, 255, 0.5);
+}
+
+#replay-btn:hover {
+  background: #00f7ff;
+  color: #000;
+  box-shadow: 0 0 12px #00f7ff;
+}
+
+#race-controls button {
+  background: transparent;
+  color: #00f7ff;
+  border: 2px solid #00f7ff;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 10px;
+  box-shadow: 0 0 6px rgba(0, 247, 255, 0.5);
+}
+
+#race-controls button:hover {
+  background: #00f7ff;
+  color: #000;
+  box-shadow: 0 0 12px #00f7ff;
+}
+.github-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: #00f7ff;
+  background: transparent;
+  border: 2px solid #00f7ff;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.github-btn:hover {
+  background: #00f7ff;
+  color: #000;
+  box-shadow: 0 0 20px #00f7ff;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Visualisation des Incendies en Californie</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+
+  <!-- === SWIPER STRUCTURE === -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <!-- === HOME === -->
+      <section class="swiper-slide" id="home">
+        
+        <h1 style="color: #ffff;">Welcome on our Website</h1>
+        <div class="home-content">
+          <p> 
+            Explore the impact of California wildfires from 2013 to 2023 through immersive and interactive data visuals.<br>
+            Use the navigation tabs to journey through glowing maps, animated graphs, vibrant bubble charts, and intuitive hierarchies.
+          </p>
+          <a href="https://github.com" target="_blank" class="github-btn">
+            View on GitHub
+          </a>
+        </div>
+      </section>
+
+      <!-- === CARTE INTERACTIVE === -->
+      <section class="swiper-slide" id="carte">
+        <h1>Fire Map</h1>
+        <div class="graph-text-wrapper">
+          <div>
+            <p>
+              Track the rise of wildfires in California from 2013 to 2023 through this interactive map.<br>
+              Use the timeline slider to reveal how and where fires ignited each year.<br>
+              Larger circles indicate greater burned areas.
+            </p>
+          </div>
+          <div>
+            <div id="chart"></div>
+            <div id="controls">
+              <p id="year-label">Année : 2013</p>
+              <input type="range" id="timeline" min="2013" max="2023" step="1" value="2013" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- === CIRCLE PACKING === -->
+      <section class="swiper-slide" id="packing">
+        <h1>Zoomable Circle Packing</h1>
+        <div class="graph-text-wrapper">
+          <div>
+            <p>
+              This visualization displays wildfires organized by year and county.<br>
+              Each bubble corresponds to a fire, with its size indicating the burned area.<br>
+              Click to zoom and explore the data by levels.
+
+            </p>
+          </div>
+          <div class="graph-container" id="circle-packing"></div>
+        </div>
+      </section>
+
+      <!-- === BAR CHART RACE === -->
+      <section class="swiper-slide" id="race">
+        <h1>Bar Chart Race</h1>
+        <div class="graph-text-wrapper">
+          <div>
+            <p>
+              This animated bar chart highlights the counties most impacted by wildfires over the years.<br>
+              Each bar shows the burned area per county, progressing through time with smooth animation.
+
+            </p>
+          
+<div id="race-controls" style="text-align:center; margin-top: 20px;">
+              <button id="replay-btn">Replay</button>
+            </div>
+            
+          </div>
+          <div id="bar-chart-race"></div>
+        </div>
+      </section>
+
+      <!-- === BUBBLE CHART === -->
+      <section class="swiper-slide" id="bubble">
+        <h1>Bubble Chart</h1>
+        <div class="graph-text-wrapper">
+          <div>
+            <p>
+              This bubble chart showcases the most severe wildfires.<br>
+              Bubble size reflects the burned area, while color indicates the number of deaths.<br>
+              A white outline means the fire also caused injuries.<br>
+              Click a bubble to see more details, including casualties and injuries.
+
+            </p>
+          </div>
+          <div>
+            <div id="bubble-chart"></div>
+            <div class="tooltip" id="tooltip" style="display: none;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- === À PROPOS === -->
+      <section class="swiper-slide" id="apropos">
+        <div class="about-wrapper">
+          <h2>About the Project</h2>
+          <p>
+            This site offers an interactive visualization of wildfire data in California from 2013 to 2023. It explores several aspects of these extreme events, including their geographic distribution, temporal evolution, and intensity.
+          </p>
+          <p>
+            This topic is particularly meaningful to us, as we strongly support environmental protection. Wildfires are devastating natural events with serious ecological and human consequences. We chose this dataset to raise awareness and highlight the growing impact of these disasters.
+          </p>
+          <p>
+            Created as part of a data visualization project, it primarily uses D3.js to build dynamic and interactive graphics.
+          </p>
+          <p>
+            Data source: <a href="https://www.fire.ca.gov/" target="_blank" style="color: #00f7ff;">CAL FIRE</a><br />
+            Development: Eve Giamminonni, Jules Ninet, Victor Hautière-Rey, 2025
+          </p>
+
+        </div>
+      </section>
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- === LIBRAIRIES === -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+
+  <!-- === FICHIERS JS === -->
+  <script src="main.js"></script>
+  <script src="circlepacking.js"></script>
+  <script src="barchart_race.js"></script>
+  <script src="bubble_chart.js"></script>
+
+  <!-- === SLIDER AUTOMATIQUE POUR LA CARTE === -->
+  <script>
+    let year = 2013;
+    const maxYear = 2023;
+    setInterval(() => {
+      year++;
+      if (year > maxYear) year = 2013;
+      document.getElementById("timeline").value = year;
+      document.getElementById("year-label").textContent = `Année : ${year}`;
+      if (typeof update === "function") update(year);
+    }, 1200);
+  </script>
+
+  <!-- === SWIPER INIT === -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+  window.swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: false,
+      slidesPerView: 1,
+      speed: 600,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      keyboard: { enabled: true }
+    });
+  </script>
+</body>
+</html>
